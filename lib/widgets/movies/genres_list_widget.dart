@@ -6,13 +6,17 @@ import '../../constants/my_app_constants.dart';
 import '../../models/movies_genres.dart';
 
 class GenresListWidget extends StatelessWidget {
-  const GenresListWidget({super.key, required this.movieModel});
+  const GenresListWidget({super.key,
+    required this.movieModel
+  });
 
   final MovieModel movieModel;
 
   @override
   Widget build(BuildContext context) {
-    List<MoviesGenres> moviesGenre=GenreUtils.movieGenresNames(movieModel.genreIds);
+    List<MoviesGenres> moviesGenre=GenreUtils.movieGenresNames(
+        movieModel.genreIds,context
+    );
     return Wrap(
       children: List.generate(
          moviesGenre.length,
